@@ -1,0 +1,33 @@
+import Button from CajyuLibs.reacjyu
+import Heading from CajyuLibs.reacjyu
+import Paragraph from CajyuLibs.reacjyu
+
+export fn Site stats {
+  var title = new Heading(1)
+  title.append("Olá, Reacjyu!")
+
+  var info = new Paragraph()
+  info.append("Edite este arquivo e salve. O navegador será atualizado automaticamente.")
+
+  var count = new Paragraph()
+  count.append("Contador do backend: " + (stats.contador || 0))
+
+  var button = new Button({ type: "button" })
+  button.append("Somar no backend")
+  button.onclick = fn {
+    fetch("/__reacjyu/state", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ contador: Number(document.querySelector("#contador")?.textContent || 0) + 1 })
+    }).then(() => location.reload())
+  }
+
+  var counter = new Paragraph({ id: "contador" })
+  counter.append(stats.contador || 0)
+
+  return {
+    html: {
+      body: [title, info, count, counter, button]
+    }
+  }
+}

@@ -1,0 +1,30 @@
+{
+  "name": "reacjyu",
+  "version": "0.2.0",
+  "description": "Reacjyu — frontend + backend para Cajyu com componentes, rotas e live reload",
+  "main": "src/index.js",
+  "exports": {
+    ".": "./src/index.js",
+    "./components": "./CajyuLibs/reacjyu/main.js"
+  },
+  "bin": {
+    "reacjyu": "./bin/reacjyu.js"
+  },
+  "type": "module",
+  "keywords": [
+    "cajyu",
+    "reacjyu",
+    "frontend",
+    "backend",
+    "live-reload"
+  ],
+  "author": "Cajyu Team",
+  "license": "MIT",
+  "engines": {
+    "node": ">=18"
+  },
+  "dependencies": {},
+  "scripts": {
+    "test": "node --test"
+  }
+}
